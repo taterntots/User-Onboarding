@@ -34,14 +34,14 @@ const FormikUserForm = withFormik({
 
     validationSchema: Yup.object().shape({
         name: Yup.string()
-            .max(10)
-            .required(),
+            .max(10, 'Your name is too long! Try a nickname under 10 characters.')
+            .required('Your name is required. We promise the government is not watching...'),
         email: Yup.string()
-            .email()
-            .required(),
+            .email('Not a valid email address. Check your spelling, poindexter.')
+            .required('Your email address is required. Expect tons of spam.'),
         password: Yup.string()
-            .min(6)
-            .required(),
+            .min(6, 'Whoa buddy, that is not very secure. Make your password at least 6 characters long.')
+            .required('A password is required. Please refrain from using your birthday.'),
         terms: Yup.bool()
             .oneOf([true], 'Must Accept Terms of Service')
     }),
