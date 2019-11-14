@@ -16,6 +16,7 @@ function UserForm({ values, errors, touched }) {
                 <Field type="password" name="password" placeholder="Password" />
                 {touched.password && errors.password && <p>{errors.password}</p>}
                 <Field type="checkbox" name="terms" checked={values.terms}/>
+                {touched.terms && errors.terms && <p>{errors.terms}</p>}
                 <button>Submit!</button>
             </Form>
         </div>
